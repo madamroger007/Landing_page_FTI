@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
@@ -27,13 +28,9 @@ Route::get('/resume', function () {
 });
 
 
-Route::get('/projects', function () {
-
-    return view('projects', [
-        "title" => "Projects",
-        "posts" => Post::all()
-    ]);
-});
+Route::get('/projects', [PostController::class,'index']);
+//halaman single post
+Route::get('projects/{slug}', [PostController::class,'show']);
 
 Route::get('/contact', function () {
     return view('contact', [
@@ -47,10 +44,4 @@ Route::get('/other', function () {
     ]);
 });
 
-//halaman single post
-Route::get('projects/{slug}', function ($slug) {
-    return view('post', [
-        "title" => "Single Post",
-        "posts" => Post::find($slug)
-    ]);
-});
+
