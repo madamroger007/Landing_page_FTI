@@ -10,15 +10,15 @@
             </div>
 
             <div class="row gx-5 justify-content-center ">
-                @foreach ($project as $project)
+                @foreach ($posts as $post)
                     <div class="col-lg-11 col-xl-9 col-xxl-8">
                         <!-- Project Card 1-->
                         <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 py-5 px-5">
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center">
                                     <div class="pe-5">
-                                        <h2 class="fw-bolder"> <a href="/projects/{{ $project["slug"] }}">{{ $project['title'] }}</a></h2>
-                                        <p>{{ $project['deskripsi'] }}</p>
+                                        <h2 class="fw-bolder"> <a href="/projects/{{ $post["slug"] }}">{{ $post['title'] }}</a></h2>
+                                        <p>{{ $post['deskripsi'] }}</p>
                                     </div>
                                     <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d"
                                         alt="..." />

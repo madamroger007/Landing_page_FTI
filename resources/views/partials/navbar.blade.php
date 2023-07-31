@@ -1,7 +1,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3 ">
     <div class="container px-5">
-        <a class="navbar-brand" href="/"><img src="img/adam.png" alt="adam" width="90" height="25"></a>
+        <a class="navbar-brand" href="/"><img src="../img/adam.png" alt="adam" width="90" height="25"></a>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder ">
                 <li class="nav-item "><a class="nav-link {{ $title == 'Home' ? 'active' : '' }}"
