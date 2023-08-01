@@ -17,8 +17,8 @@
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center">
                                     <div class="pe-5">
-                                        <h2 class="fw-bolder"> <a href="/projects/{{ $post["slug"] }}">{{ $post['title'] }}</a></h2>
-                                        <p>{{ $post['deskripsi'] }}</p>
+                                        <h2 class="fw-bolder"> <a href="/projects/{{ $post->slug }}">{{ $post->title }}</a></h2>
+                                        <p>{{ $post->excerpt }}</p>
                                     </div>
                                     <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d"
                                         alt="..." />

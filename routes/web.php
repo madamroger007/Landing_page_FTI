@@ -30,7 +30,7 @@ Route::get('/resume', function () {
 
 Route::get('/projects', [PostController::class,'index']);
 //halaman single post
-Route::get('projects/{slug}', [PostController::class,'show']);
+Route::get('projects/{post:slug}', [PostController::class,'show']);
 
 Route::get('/contact', function () {
     return view('contact', [
