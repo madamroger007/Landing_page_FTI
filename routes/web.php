@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +21,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/resume', function () {
-    return view('resume', [
-        "title" => "Resume"
-    ]);
-});
-
+Route::get('/resume', [PostController::class, "showResume"]);
 
 Route::get('/projects', [PostController::class,'index']);
 //halaman single post
@@ -43,5 +38,7 @@ Route::get('/other', function () {
         "title" => "Other"
     ]);
 });
+
+Route::get('/categories/{category::slug}',[CategoryController::class,'show']);
 
 

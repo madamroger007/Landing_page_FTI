@@ -17,7 +17,8 @@
                             <div class="card-body p-0">
                                 <div class="d-flex align-items-center">
                                     <div class="pe-5">
-                                        <h2 class="fw-bolder"> <a href="/projects/{{ $post->slug }}">{{ $post->title }}</a></h2>
+                                        <h2 class="fw-bolder"> <a
+                                                href="/projects/{{ $post->slug }}">{{ $post->title }}</a></h2>
                                         <p>{{ $post->excerpt }}</p>
                                     </div>
                                     <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d"
@@ -36,7 +37,7 @@
         <div class="container px-5 my-5">
             <div class="text-center">
                 <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact">Contact me</a>
             </div>
         </div>
     </section>
