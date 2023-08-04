@@ -1,6 +1,35 @@
 <?php
 
 
+
+
+// Home
+$service = [
+    [
+        "title" => "Kerja Sama",
+        "icon" => "bi-people-fill",
+        "body" => "Kerja sama menjadi pilar utama di Prodi Teknik Informatika, di mana mahasiswa dan dosen bersatu padu dalam memecahkan permasalahan teknologi yang kompleks."
+    ],
+    [
+        "title" => "Manajemen waktu dan pembelajaran",
+        "icon" => "bi-calendar-check",
+       "body" =>"Manajemen waktu menjadi kunci kesuksesan mahasiswa kami, dengan mengatur jadwal belajar yang efisien dan produktif."
+    ],
+    [
+        "title" => "Kualitas pembelajaran",
+        "icon" => "bi-book",
+        "body" => "Kualitas pembelajaran di Prodi ini tak diragukan, dengan kurikulum terkini dan metode mengajar yang interaktif."
+    ],
+    [
+        "title" => "Pola pikir",
+        "icon" => "bi-lightbulb",
+       "body" => "Pola pikir inovatif dan berorientasi pada solusi menjadi bagian esensial dari pendidikan di Prodi ini, menginspirasi mahasiswa untuk berpikir kreatif dan menghadapi tantangan dengan percaya diri."
+    ],
+    ];
+
+
+//* About
+
 $experience = [
     [
         "job" => "Instruktur Komputer",
@@ -46,9 +75,25 @@ $education = [
 
 ];
 
-$resume = [
+
+$home = [
+    "service" => $service,
+];
+
+
+
+$about = [
     "experience" => $experience,
-    "education" => $education
+    "education" => $education,
+];
+
+//*Team
+
+
+// Return all data as a single array
+return [
+    "home" => $home,
+    "about" => $about,
 ];
 
 ?>

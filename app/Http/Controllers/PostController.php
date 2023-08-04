@@ -7,31 +7,46 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    private $data;
 
+    public function __construct()
+    {
+        $this->data = include public_path('php/data.php');
+    }
 
+    public function showHome()
+    {
+        return view('pages.home', [
+            "title" => "Home",
+            "service" => $this->data["home"]["service"],
+        ]);
+    }
 
-    public function index(){
+    public function showBlog()
+    {
         return view('pages.blogs', [
             "title" => "All Blogs",
             // "posts" => Post::all()
-            "posts" => Post::with('author','category')->latest()->get()
-
+            "posts" => Post::latest()->get()
         ]);
     }
-    public function showResume(){
-        include public_path('php/data.php');
+
+    public function showAbout()
+    {
         return view('pages.about', [
             "title" => "About",
-            "experience" => $resume["experience"],
-            "education" => $resume["education"],
+            "img" => "aboutsesi.jpeg",
+            "service" => $this->data["home"]["service"],
+            "experience" => $this->data["about"]["experience"],
+            "education" => $this->data["about"]["education"],
         ]);
     }
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
         return view('pages.post', [
             "title" => "Single Post",
             "posts" => $post,
-
         ]);
     }
 }

@@ -8,6 +8,23 @@
             <div class="text-center mb-5">
                 <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">{{ $title }}</span></h1>
             </div>
+
+
+
+            @if ($posts->count())
+            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 py-4 px-4">
+                <img src="..." alt="..." class="card-img-top">
+                <div class="card-body p-0">
+                    <h5 class="card-title">Card Title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, libero? Impedit dolorum ratione soluta inventore repudiandae quia sint dolor optio cum, ipsa, odit ipsum fuga nisi hic deleniti fugiat nulla.Assumenda quibusdam laboriosam rerum suscipit facere sint, iste eum accusantium esse impedit aut nisi animi nulla vero, eius accusamus consequuntur amet repellat maiores doloremque voluptatum unde? Aliquam ab aliquid ratione?</p>
+                    <p class="card-text">Last updated 3 mins ago</p>
+                </div>
+            </div>
+            @else
+            <p class="text-center fs-4">Not Post Found</p>
+            @endif
+
+
             @foreach ($posts as $post)
                 <div class="row gx-5 justify-content-center ">
 

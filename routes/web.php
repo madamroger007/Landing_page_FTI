@@ -16,20 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home', [
-        "title" => "Home"
-    ]);
-});
+Route::get('/', [PostController::class, "showHome"]);
 
-Route::get('/about', [PostController::class, "showResume"]);
+Route::get('/about', [PostController::class, "showAbout"]);
 Route::get('/team', function () {
     return view('pages.team', [
-        "title" => "Team"
+        "title" => "Team",
+        "img" => "teamsesi.jpeg"
     ]);
 });
 
-Route::get('/blogs', [PostController::class,'index']);
+Route::get('/blogs', [PostController::class,'showBlog']);
 //halaman single post
 Route::get('blogs/{post:slug}', [PostController::class,'show']);
 
