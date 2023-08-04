@@ -11,10 +11,10 @@
                 <div class="text-center text-xxl-start">
                     <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Design &middot; Development </div></div>
                     <div class="fs-3 fw-light text-muted">Wellcome to</div>
-                    <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">My Portofolio</span></h1>
+                    <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">FTI Family</span></h1>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/resume">Resume</a>
-                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/projects">Projects</a>
+                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/about">About</a>
+                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/blogs">Blogs</a>
                     </div>
                 </div>
             </div>
@@ -139,6 +139,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Header profile --}}
             </div>
         </div>
     </div>

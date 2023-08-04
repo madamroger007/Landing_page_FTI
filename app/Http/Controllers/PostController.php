@@ -11,24 +11,27 @@ class PostController extends Controller
 
 
     public function index(){
-        return view('projects', [
-            "title" => "Projects",
-            "posts" => Post::all()
+        return view('pages.blogs', [
+            "title" => "All Blogs",
+            // "posts" => Post::all()
+            "posts" => Post::with('author','category')->latest()->get()
+
         ]);
     }
     public function showResume(){
         include public_path('php/data.php');
-        return view('resume', [
-            "title" => "resume",
+        return view('pages.about', [
+            "title" => "About",
             "experience" => $resume["experience"],
             "education" => $resume["education"],
         ]);
     }
 
     public function show(Post $post){
-        return view('post', [
+        return view('pages.post', [
             "title" => "Single Post",
-            "posts" => $post
+            "posts" => $post,
+
         ]);
     }
 }

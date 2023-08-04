@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,29 +17,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
+    return view('pages.home', [
         "title" => "Home"
     ]);
 });
 
-Route::get('/resume', [PostController::class, "showResume"]);
+Route::get('/about', [PostController::class, "showResume"]);
+Route::get('/team', function () {
+    return view('pages.team', [
+        "title" => "Team"
+    ]);
+});
 
-Route::get('/projects', [PostController::class,'index']);
+Route::get('/blogs', [PostController::class,'index']);
 //halaman single post
-Route::get('projects/{post:slug}', [PostController::class,'show']);
+Route::get('blogs/{post:slug}', [PostController::class,'show']);
 
 Route::get('/contact', function () {
-    return view('contact', [
+    return view('pages.contact', [
         "title" => "Contact"
     ]);
 });
 
 Route::get('/other', function () {
-    return view('other', [
+    return view('pages.other', [
         "title" => "Other"
     ]);
 });
 
-Route::get('/categories/{category::slug}',[CategoryController::class,'show']);
+Route::get('/categories',[CategoryController::class,'index']);
+Route::get('/categories/{category:slug}',[CategoryController::class,'show']);
+
+Route::get('/authors/{author:username}',[UserController::class,'show']);
 
 

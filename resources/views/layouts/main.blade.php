@@ -24,7 +24,6 @@
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         @include('partials.navbar')
-
         <div class="container mt-4">
             @yield('container')
         </div>
