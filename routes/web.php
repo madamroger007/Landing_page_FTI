@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoogleSheetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,24 +18,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, "showHome"]);
-
 Route::get('/about', [PostController::class, "showAbout"]);
 Route::get('/team', function () {
-    return view('pages.team', [
-        "title" => "Team",
-        "img" => "teamsesi.jpeg"
-    ]);
-});
+    $googleSheetController = new GoogleSheetController();
+    $dataFromSheet = $googleSheetController->getDataFromSheet();
 
+    $postController = new PostController();
+    return $postController->showTeam($dataFromSheet);
+});
+Route::get('/gallery', [PostController::class,'showGallery']);
 Route::get('/blogs', [PostController::class,'showBlog']);
+Route::get('/contact', [PostController::class, "showContact"]);
 //halaman single post
 Route::get('blogs/{post:slug}', [PostController::class,'show']);
-
-Route::get('/contact', function () {
-    return view('pages.contact', [
-        "title" => "Contact"
-    ]);
-});
 
 Route::get('/other', function () {
     return view('pages.other', [
@@ -47,4 +43,4 @@ Route::get('/categories/{category:slug}',[CategoryController::class,'show']);
 
 Route::get('/authors/{author:username}',[UserController::class,'show']);
 
-
+Route::get('/sheet',[GoogleSheetController::class,"getDataFromSheet"]);

@@ -12,6 +12,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->data = include public_path('php/data.php');
+
     }
 
     public function showHome()
@@ -22,6 +23,24 @@ class PostController extends Controller
         ]);
     }
 
+    public function showTeam($dataFromSheet)
+    {
+        return view('pages.team', [
+            "title" => "Team",
+            "img" => "teamsesi.jpeg",
+            'teamData' => $dataFromSheet
+        ]);
+    }
+
+
+    public function showGallery()
+    {
+        return view('pages.gallery', [
+            "title" => "Gallery",
+            "img" => "gallery.jpg",
+            "service" => $this->data["home"]["service"],
+        ]);
+    }
     public function showBlog()
     {
         return view('pages.blogs', [
@@ -39,6 +58,12 @@ class PostController extends Controller
             "service" => $this->data["home"]["service"],
             "experience" => $this->data["about"]["experience"],
             "education" => $this->data["about"]["education"],
+        ]);
+    }
+    public function showContact()
+    {
+        return view('pages.contact', [
+            "title" => "Contact"
         ]);
     }
 

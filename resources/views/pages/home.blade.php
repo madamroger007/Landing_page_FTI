@@ -13,7 +13,7 @@
                         </blockquote>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                             <a href="/about" class="btn-get-started">Get Started</a>
-                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                            <a href="https://drive.google.com/file/d/1N-R1WGDbVdpP94D7nJhEK5B2V9v2TYht/preview"
                                 class="glightbox btn-watch-video d-flex align-items-center"><i
                                     class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>

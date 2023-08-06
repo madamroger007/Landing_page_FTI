@@ -21,20 +21,20 @@
                   <li class="nav-item"><a class="nav-link {{ $title == 'Team' ? 'active' : '' }}"
                           href="/team">Team</a></li>
                   <li class="nav-item"><a class="nav-link {{ $title == 'All Blogs' ? 'active' : '' }}"
-                          href="/blogs">Blog</a></li>
+                          href="/gallery">Gallery</a></li>
 
-                  <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                  <li class="dropdown"><a href="/blogs"><span>Blog</span> <i
                               class="bi bi-chevron-down dropdown-indicator"></i></a>
                       <ul>
-                          <li><a href="#">Dropdown 1</a></li>
-                          <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                          <li><a href="/blogs">All Blog</a></li>
+                          <li class="dropdown"><a href="/categories"><span>Categories</span> <i
                                       class="bi bi-chevron-down dropdown-indicator"></i></a>
                               <ul>
-                                  <li><a href="#">Deep Dropdown 1</a></li>
-                                  <li><a href="#">Deep Dropdown 2</a></li>
-                                  <li><a href="#">Deep Dropdown 3</a></li>
-                                  <li><a href="#">Deep Dropdown 4</a></li>
-                                  <li><a href="#">Deep Dropdown 5</a></li>
+                                  <li><a href="#">Teknologi</a></li>
+                                  <li><a href="#">Anime</a></li>
+                                  <li><a href="#">Kesehatan</a></li>
+                                  <li><a href="#">Makanan</a></li>
+                                  <li><a href="#">Aktifitas Mahasiswa</a></li>
                               </ul>
                           </li>
                           <li><a href="#">Dropdown 2</a></li>

@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('projects', [
+        return view('pages.blogs', [
             "title" => 'Post Categories',
             "categories" =>Category::all()
         ]);
