@@ -13,7 +13,7 @@
     <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="../vendor/remixicon/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-
+    
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,19 +32,20 @@
     <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="../vendor/php-email-form/validate.js"></script>
     <script src="../js/index.js"></script>
-
+   
 </head>
 
 <body class="page-index">
-
     @include('partials.navbar')
 
-    @yield('container')
+   
+        @yield('container')
+        @include('partials.loaded')
+    
 
-
+   
     @include('partials.footer')
-
-
+    
 </body>
 
 </html>
