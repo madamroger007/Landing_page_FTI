@@ -30,16 +30,11 @@
                           <li class="dropdown"><a href="/categories"><span>Categories</span> <i
                                       class="bi bi-chevron-down dropdown-indicator"></i></a>
                               <ul>
-                                  <li><a href="#">Teknologi</a></li>
-                                  <li><a href="#">Anime</a></li>
-                                  <li><a href="#">Kesehatan</a></li>
-                                  <li><a href="#">Makanan</a></li>
-                                  <li><a href="#">Aktifitas Mahasiswa</a></li>
+                                <li><a href="/categories/web programming">Web Programming</a></li>
+                                <li><a href="/categories/personal">Personal</a></li>
                               </ul>
                           </li>
-                          <li><a href="#">Dropdown 2</a></li>
-                          <li><a href="#">Dropdown 3</a></li>
-                          <li><a href="#">Dropdown 4</a></li>
+                         
                       </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link {{ $title == 'Contact' ? 'active' : '' }}"

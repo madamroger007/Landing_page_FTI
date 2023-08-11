@@ -21,7 +21,7 @@
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="team-member">
                 <div class="member-img">
-                  <img src="https://drive.google.com/uc?id={{ $row["gambar"] }}" class="img-fluid rounded-top-3" alt="" style=" width:300px; height:300px;">
+                  <img src="https://drive.google.com/uc?id={{ $row["gambar"] }}" class="img-fluid rounded-top-3" alt="" style=" width:270px; height:290px;">
 
                   <div class="social">
                     <a href="{{ $row["fb"] }}" target="_blank"><i class="bi bi-facebook"></i></a>

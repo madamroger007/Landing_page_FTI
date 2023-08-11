@@ -10,8 +10,10 @@ class UserController extends Controller
    public function show(User $author){
     return view('pages.blogs',[
         "title" => "Post By Author $author->name",
-        "posts" => $author->posts->load('category','author'),
-
+        "img" => "aboutsesi.jpeg",
+        "post" => $author->post->load('category','author'),
+        "posts" => Post::latest()->get(),
+        "limit" =>  $this->Limit
     ]);
    }
 }

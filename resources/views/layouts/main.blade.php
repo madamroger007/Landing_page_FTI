@@ -24,7 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Vendor JS Files -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/aos/aos.js"></script>
     <script src="../vendor/glightbox/js/glightbox.min.js"></script>
@@ -32,20 +32,15 @@
     <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="../vendor/php-email-form/validate.js"></script>
     <script src="../js/index.js"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
 </head>
 
 <body class="page-index">
     @include('partials.navbar')
-
-   
-        @yield('container')
-        @include('partials.loaded')
-    
-
-   
+    @yield('container')
     @include('partials.footer')
-    
+    @include('partials.loaded')
+    @stack('scripts')  
 </body>
 
 </html>

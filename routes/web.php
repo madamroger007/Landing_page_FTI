@@ -19,13 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, "showHome"]);
 Route::get('/about', [PostController::class, "showAbout"]);
-Route::get('/team', function () {
-    $googleSheetController = new GoogleSheetController();
-    $dataFromSheet = $googleSheetController->getDataFromSheet();
-
-    $postController = new PostController();
-    return $postController->showTeam($dataFromSheet);
-});
+Route::get('/team', [PostController::class, "showTeam"]);
 Route::get('/gallery', [PostController::class,'showGallery']);
 Route::get('/blogs', [PostController::class,'showBlog']);
 Route::get('/contact', [PostController::class, "showContact"]);

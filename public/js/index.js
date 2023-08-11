@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /**
-   * Animation on scroll function, loader and init
+   * Animation on scroll function and init
    */
   let loader = document.getElementById('loader');
   function aos_init() {
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('load', () => {
     aos_init();
-    loader.classList.add('invisible');
+   
   });
 
 });

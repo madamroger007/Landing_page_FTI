@@ -7,24 +7,33 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    private $data;
+    protected $data;
+    private $Limit;
+    private $sheet;
 
     public function __construct()
     {
         $this->data = include public_path('php/data.php');
-
+        $this->Limit = 4;
+        $this->sheet = new GoogleSheetController();
     }
 
     public function showHome()
     {
+        
         return view('pages.home', [
             "title" => "Home",
             "service" => $this->data["home"]["service"],
+            "posts" => Post::latest()->get(),
+            "limit" =>  $this->Limit
         ]);
     }
 
-    public function showTeam($dataFromSheet)
+    public function showTeam()
     {
+      
+        $dataFromSheet =  $this->sheet->getDataFromSheet();
+
         return view('pages.team', [
             "title" => "Team",
             "img" => "teamsesi.jpeg",
@@ -35,18 +44,24 @@ class PostController extends Controller
 
     public function showGallery()
     {
+
+        $dataFromSheet =  $this->sheet->getDataFromSheetGallery();
+
         return view('pages.gallery', [
             "title" => "Gallery",
             "img" => "gallery.jpg",
             "service" => $this->data["home"]["service"],
+            "gallery" => $dataFromSheet
         ]);
     }
     public function showBlog()
     {
         return view('pages.blogs', [
             "title" => "All Blogs",
+            "img" => "aboutsesi.jpeg",
             // "posts" => Post::all()
-            "posts" => Post::latest()->get()
+            "posts" => Post::latest()->get(),
+            "limit" =>  $this->Limit
         ]);
     }
 
@@ -71,7 +86,11 @@ class PostController extends Controller
     {
         return view('pages.post', [
             "title" => "Single Post",
-            "posts" => $post,
+            "img" => "aboutsesi.jpeg",
+            "post" => $post,
+            "posts" => Post::latest()->get(),
+            "limit" =>  $this->Limit
         ]);
     }
+
 }

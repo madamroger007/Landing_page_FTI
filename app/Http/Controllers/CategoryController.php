@@ -5,17 +5,27 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Post;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+     {
+         $this->Limit = 4;
+     }
+
     public function index()
     {
         return view('pages.blogs', [
             "title" => 'Post Categories',
-            "categories" =>Category::all()
+            "img" => "aboutsesi.jpeg",
+            "categories" =>Category::all(),
+            "posts" => Post::latest()->get(),
+            "limit" =>  $this->Limit
         ]);
     }
 
@@ -41,8 +51,11 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         return view('pages.blogs', [
-            "title" => "Post by Category: $category->name",
+            "title" => "Category: $category->name",
+            "img" => "aboutsesi.jpeg",
             "posts" => $category->post->load('category','author'),
+            "posts" => Post::latest()->get(),
+            "limit" =>  $this->Limit
         ]);
     }
 

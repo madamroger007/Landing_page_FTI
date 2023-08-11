@@ -13,7 +13,7 @@
                         </blockquote>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                             <a href="/about" class="btn-get-started">Get Started</a>
-                            <a href="https://drive.google.com/file/d/1N-R1WGDbVdpP94D7nJhEK5B2V9v2TYht/preview"
+                            <a href="https://drive.google.com/file/d/1Sm_B6YlPow9b4sS4AQi7icqumNaF-HlN/preview"
                                 class="glightbox btn-watch-video d-flex align-items-center"><i
                                     class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>
@@ -128,27 +128,31 @@
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-header">
-                        <h2>Recent Blog Posts</h2>
+                        <h2>Blog Terbaru</h2>
 
                     </div>
 
                     <div class="row gy-5">
-
-                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="post-box">
-                                <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid"
-                                        alt=""></div>
-                                <div class="meta">
-                                    <span class="post-date">Tue, December 12</span>
-                                    <span class="post-author"> / Julia Parker</span>
+                        @foreach ($posts as $index => $post)
+                            @if ($index < $limit)
+                                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="post-box">
+                                        <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid"
+                                                alt=""></div>
+                                        <div class="meta">
+                                            <span class="post-date">{{ $post->created_at->diffForHumans() }}</span>
+                                            <span class="post-author"> / {{ $post->author->name }}</span>
+                                        </div>
+                                        <h3 class="post-title">{{ $post->title }}</h3>
+                                        <p>{{ $post->excerpt }}</p>
+                                        <a href="/blogs/{{ $post->slug }}" class="readmore stretched-link"><span>Read
+                                                More</span><i class="bi bi-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-                                <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium.
-                                    Asperiores eum ipsa est officiis. Modi qui magni est...</p>
-                                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
+
+
                     </div>
 
                 </div>
