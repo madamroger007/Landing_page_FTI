@@ -24,17 +24,16 @@ Route::get('/gallery', [PostController::class,'showGallery']);
 Route::get('/blogs', [PostController::class,'showBlog']);
 Route::get('/contact', [PostController::class, "showContact"]);
 //halaman single post
-Route::get('blogs/{post:slug}', [PostController::class,'show']);
+Route::get('/blogs/{post:slug}', [PostController::class,'show']);
 
 Route::get('/other', function () {
     return view('pages.other', [
         "title" => "Other"
     ]);
 });
-
+Route::get('/gallery/{gallery:slug}', [PostController::class,'showDetailGallery']);
 Route::get('/categories',[CategoryController::class,'index']);
 Route::get('/categories/{category:slug}',[CategoryController::class,'show']);
 
 Route::get('/authors/{author:username}',[UserController::class,'show']);
 
-Route::get('/sheet',[GoogleSheetController::class,"getDataFromSheet"]);

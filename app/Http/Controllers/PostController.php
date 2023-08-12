@@ -44,16 +44,28 @@ class PostController extends Controller
 
     public function showGallery()
     {
-
-        $dataFromSheet =  $this->sheet->getDataFromSheetGallery();
-
+        $dataFromSheet =  $this->sheet->getDataFromSheetGallery();       
         return view('pages.gallery', [
             "title" => "Gallery",
             "img" => "gallery.jpg",
             "service" => $this->data["home"]["service"],
-            "gallery" => $dataFromSheet
+            "gallery" =>  $dataFromSheet,
+       
         ]);
     }
+
+    public function showDetailGallery($gallery)
+    {
+       
+        $dataFromSheetByslug = $this->sheet->getDataByslugFromSheetGallery( $gallery);
+        return view('pages.galleryDetails', [
+            "title" => "Detail Gallery",
+            "img" => "gallery.jpg",
+            "service" => $this->data["home"]["service"],
+            "galleri" => $dataFromSheetByslug
+        ]);
+    }
+
     public function showBlog()
     {
         return view('pages.blogs', [
