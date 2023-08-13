@@ -4,8 +4,14 @@
 
         <div class="sidebar-item search-form">
             <h3 class="sidebar-title">Search</h3>
-            <form action="" class="mt-3">
-                <input type="text">
+            <form action="/blogs" class="mt-3">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{request('category')}}">
+                @endif
+                @if (request('author'))
+                    <input type="hidden" name="author" value="{{request('author')}}">
+                @endif
+                <input type="text" name="search" value="{{request('search')}}">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
         </div><!-- End sidebar search formn-->
@@ -13,8 +19,8 @@
         <div class="sidebar-item categories">
             <h3 class="sidebar-title">Categories</h3>
             <ul class="mt-3">
-                <li><a href="/categories/web programming">Web Programming</a></li>
-                <li><a href="/categories/personal">Personal</a></li>
+                <li><a href="/blogs?category=web programming">Web Programming</a></li>
+                <li><a href="/blogs?category=personal">Personal</a></li>
             </ul>
         </div>
         <!-- End sidebar categories-->

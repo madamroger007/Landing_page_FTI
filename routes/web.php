@@ -33,7 +33,5 @@ Route::get('/other', function () {
 });
 Route::get('/gallery/{gallery:slug}', [PostController::class,'showDetailGallery']);
 Route::get('/categories',[CategoryController::class,'index']);
-Route::get('/categories/{category:slug}',[CategoryController::class,'show']);
 
-Route::get('/authors/{author:username}',[UserController::class,'show']);
 

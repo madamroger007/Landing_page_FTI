@@ -12,11 +12,12 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-     public function __construct()
-     {
-         $this->Limit = 4;
-     }
+    public function __construct()
+    {
+      
+        $this->Limit = 4;
+        
+    }
 
     public function index()
     {
@@ -50,13 +51,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('pages.blogs', [
-            "title" => "Category: $category->name",
-            "img" => "aboutsesi.jpeg",
-            "posts" => $category->post->load('category','author'),
-            "posts" => Post::latest()->get(),
-            "limit" =>  $this->Limit
-        ]);
+     
     }
 
     /**

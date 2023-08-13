@@ -2022,7 +2022,6 @@
   }
 
   .blog .blog-pagination ul {
-    display: flex;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -2035,7 +2034,7 @@
 
   .blog .blog-pagination li a {
     color: #2aa5df;
-    border-radius: 50%;
+    border-radius: 10%;
     width: 40px;
     height: 40px;
     background: #dbf0fa;

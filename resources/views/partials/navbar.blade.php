@@ -13,25 +13,25 @@
 
           <nav id="navbar" class="navbar">
               <ul>
-                  <li class="nav-item "><a class="nav-link {{ $title == 'Home' ? 'active' : '' }}"
+                  <li class="nav-item "><a class="nav-link {{ $active == 'Home' ? 'active' : '' }}"
                           href="/">Home</a>
                   </li>
-                  <li class="nav-item"><a class="nav-link {{ $title == 'About' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{ $active == 'About' ? 'active' : '' }}"
                           href="/about">About</a></li>
-                  <li class="nav-item"><a class="nav-link {{ $title == 'Team' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{ $active == 'Team' ? 'active' : '' }}"
                           href="/team">Team</a></li>
-                  <li class="nav-item"><a class="nav-link {{ $title == 'All Blogs' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{ $active == 'Gallery' ? 'active' : '' }}"
                           href="/gallery">Gallery</a></li>
 
-                  <li class="dropdown"><a href="/blogs"><span>Blog</span> <i
+                  <li class="dropdown "><a href="/blogs" class="{{$active == 'All Blogs' ? 'active' : '' }}"><span>Blog</span> <i
                               class="bi bi-chevron-down dropdown-indicator"></i></a>
                       <ul>
-                          <li><a href="/blogs">All Blog</a></li>
-                          <li class="dropdown"><a href="/categories"><span>Categories</span> <i
+                          <li><a href="/blogs" class="{{$active == 'All Blogs' ? 'active' : '' }}">All Blog</a></li>
+                          <li class="dropdown {{ $active == 'Category' ? 'active' : '' }}"><a href="/categories"><span>Categories</span> <i
                                       class="bi bi-chevron-down dropdown-indicator"></i></a>
                               <ul>
-                                <li><a href="/categories/web programming">Web Programming</a></li>
-                                <li><a href="/categories/personal">Personal</a></li>
+                                <li><a href="/blogs?category=web programming">Web Programming</a></li>
+                                <li><a href="/blogs?category=personal">Personal</a></li>
                               </ul>
                           </li>
                          

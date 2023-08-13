@@ -24,7 +24,7 @@
                                     <div class="meta-top">
                                         <ul>
                                             <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                                    href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+                                                    href="/blogs?author={{ $post->author->username }}">{{ $post->author->name }}</a>
                                             </li>
                                             <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                                     href="/blogs/{{ $post->slug }}"><time datetime="2022-01-01">Jan 1,
@@ -32,7 +32,7 @@
                                             <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
                                                     href="/blogs/{{ $post->slug }}">12 Comments</a></li>
                                             <li><a
-                                                    href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                                                    href="/blogs?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -56,17 +56,15 @@
 
 
                     <!--  blog pagination -->
-                    <div class="blog-pagination">
-                        <ul class="justify-content-center">
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
+                    <div class="mt-5">
+
+                        {{ $posts->links() }}
+
                     </div>
                     <!-- End blog pagination -->
                 </div>
 
-              @include('partials.sidebarcategoriest')
+                @include('partials.sidebarcategoriest')
             </div>
 
         </div>
