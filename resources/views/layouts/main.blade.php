@@ -13,7 +13,7 @@
     <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="../vendor/remixicon/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    
+   
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
         rel="stylesheet" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-
+   
     <!-- Vendor JS Files -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -37,7 +37,11 @@
 </head>
 
 <body class="page-index">
+     <!-- Blok untuk navbar yang ingin diabaikan saat di-extend -->
+    @hasSection('partials.navbar')
+    @else
     @include('partials.navbar')
+    @endif
     @yield('container')
     @include('partials.footer')
     @include('partials.loaded')

@@ -27,8 +27,7 @@
                                                     href="/blogs?author={{ $post->author->username }}">{{ $post->author->name }}</a>
                                             </li>
                                             <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                                    href="/blogs/{{ $post->slug }}"><time datetime="2022-01-01">Jan 1,
-                                                        2022</time></a></li>
+                                                    href="/blogs/{{ $post->slug }}"><time datetime="{{ $post->created_at }}">{{ $post->created_at->diffForHumans() }}</time></a></li>
                                             <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
                                                     href="/blogs/{{ $post->slug }}">12 Comments</a></li>
                                             <li><a
