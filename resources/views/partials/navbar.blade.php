@@ -41,9 +41,36 @@
                   </li>
                   <li class="nav-item"><a class="nav-link {{ $title == 'Contact' ? 'active' : '' }}"
                           href="/contact">Contact</a></li>
-                  <li class="nav-item ">
-                      <a href="/login" class="nav-link justify-content-start {{ $active == 'login' ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right me-2 fs-4"></i>Login</a>
-                  </li>
+                  @auth
+
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              Hi, {{ auth()->user()->name }}
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item justify-content-start" href="/dashboard"><i
+                                          class="bi bi-columns-gap me-2 fs-4 "></i>My Dashboard</a></li>
+                              <li><a class="dropdown-item justify-content-start" href="#">Course</a></li>
+                              <li>
+                                  <hr class="dropdown-divider">
+                              </li>
+                              <li>
+                                  <form action="/logout" method="post">
+                                    @csrf
+                                      <button type="submit" class="dropdown-item justify-content-start"><i
+                                              class="bi bi-box-arrow-right me-2 fs-4 "></i>Logout</button>
+                                  </form>
+
+                          </ul>
+                      </li>
+                  @else
+                      <li class="nav-item ">
+                          <a href="/login"
+                              class="nav-link justify-content-start {{ $active == 'login' ? 'active' : '' }}"><i
+                                  class="bi bi-box-arrow-in-right me-2 fs-4"></i>Login</a>
+                      </li>
+                  @endauth
               </ul>
 
           </nav><!-- .navbar -->
