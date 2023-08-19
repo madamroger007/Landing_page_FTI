@@ -4,19 +4,7 @@
 @endsection
 
 <section class="vh-100">
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    @if (session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('loginError') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+  
 
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -86,7 +74,7 @@
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="submit" class="btn btn-primary btn-lg"
                             style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0 ">Don't have an account? <a href="/register"
+                        <p class="small fw-bold mt-2 pt-1 mb-0 ">Don't have an account ? <a href="/register"
                                 class="link-danger">Register</a></p>
                     </div>
 
@@ -95,3 +83,4 @@
         </div>
     </div>
 </section>
+

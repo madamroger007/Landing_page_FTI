@@ -17,7 +17,7 @@
         $(function(){
             setTimeout(() => {
             $(".loadedPage").fadeOut(1500);
-        }, 2000);
+        }, 1700);
         })
     </script>
 @endpush

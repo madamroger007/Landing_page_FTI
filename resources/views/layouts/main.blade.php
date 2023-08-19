@@ -13,6 +13,7 @@
     <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="../vendor/remixicon/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +46,41 @@
     @yield('container')
     @include('partials.footer')
     @include('partials.loaded')
-    @stack('scripts')  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ @stack('scripts')
+    @if (Session::has('success'))
+    {{-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> --}}
+    
+    <script>
+        toastr.options = {
+            "progressBar" : true,
+            "closeButton" : true,
+        }
+        toastr.success("{{ session()->get('success') }}",'Seccess!', {timeOut:12000});
+    </script>
+    
+@endif
+
+@if (Session::has('loginError'))
+    {{-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('loginError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> --}}
+   
+    <script>
+        toastr.options = {
+            "progressBar" : true,
+            "closeButton" : true,
+        }
+        toastr.error("{{ session()->get('loginError') }}",'loginError!', {timeOut:1200});
+    </script>
+
+@endif
+   
+  
 </body>
 
 </html>
