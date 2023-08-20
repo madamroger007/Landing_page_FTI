@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+<main id="main">
 <section class="py-5">
     <div class="container px-4 mb-5">
         <div class="text-center mb-5">
@@ -23,4 +24,5 @@
 
     <a href="/projects">Back to project</a>
         </section>
+    </main><!-- End #main -->
 @endsection

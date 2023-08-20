@@ -106,6 +106,7 @@ class PostController extends Controller
         return view('pages.contact', [
             'title' => 'Contact',
             'active' => 'Contact',
+            'img' => 'teamsesi.jpeg',
         ]);
     }
 
