@@ -15,7 +15,7 @@ class PostController extends Controller
 
     public function __construct()
     {
-        $this->data = include public_path('php/data.php');
+        $this->data =  include public_path('build/assets/php/data.php');
         $this->Limit = 4;
         $this->sheet = new GoogleSheetController();
     }

@@ -1,13 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GoogleSheetController;
+use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,22 +16,55 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require __DIR__ . '/auth.php';
 
-Route::get('/', [PostController::class, 'showHome']);
-Route::get('/about', [PostController::class, 'showAbout']);
-Route::get('/team', [PostController::class, 'showTeam']);
-Route::get('/gallery', [PostController::class, 'showGallery']);
-Route::get('/blogs', [PostController::class, 'showBlog']);
-Route::get('/contact', [PostController::class, 'showContact']);
-//halaman single post
-Route::get('/blogs/{post:slug}', [PostController::class, 'show']);
+// Mengambil data dari route
+function set_active($route)
+{
+    if (is_array($route)) {
+        return in_array(Request::path(), $route) ? 'active' : '';
+    }
+    return Request::path() == $route ? 'active' : '';
+}
 
-Route::get('/gallery/{gallery:slug}', [PostController::class, 'showDetailGallery']);
+//-------------guest----------------------------------------//
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authentication']);
-Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+//----------author------------------------------------------//
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('pages.post', [
+        'title' => "Post By Author : $author->name",
+        'posts' => $author->posts,
+    ]);
+})->name('user');
 
+//----------- Portofolio------------------------------------//
+Route::controller(PostController::class)->group(function () {
+    Route::get('/', 'showHome')->name('home');
+    Route::get('/about', 'showAbout')->name('about');
+    Route::get('/team', 'showTeam')->name('team');
+    Route::get('/gallery', 'showGallery')->name('gallery');
+    Route::get('/blogs', 'showBlog')->name('blogs');
+    Route::get('/contact', 'showContact')->name('contact');
+    Route::get('/blogs/{post:slug}', 'show')->name('blogs.post');
+    Route::get('/gallery/{gallery:slug}', 'showDetailGallery')->name('gallery.detail');
+});
+
+//------------Post Category--------------------------------//
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/categories', 'index')->name('categories');
+    Route::post('/categories/{category:slug}', 'show')->name('categories.context');
+});
+Route::middleware(['guest'])->group(function () {});
+
+//--------------Dashboard----------------------------------//
+Route::get('/dashboard', function () {
+    return view('layouts.dashboard');
+})
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});

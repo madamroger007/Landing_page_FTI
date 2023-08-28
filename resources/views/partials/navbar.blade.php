@@ -13,22 +13,22 @@
 
           <nav id="navbar" class="navbar">
               <ul>
-                  <li class="nav-item "><a class="nav-link {{ $active == 'Home' ? 'active' : '' }}"
+                  <li class="nav-item "><a class="nav-link {{set_active(['home'])}}"
                           href="/">Home</a>
                   </li>
-                  <li class="nav-item"><a class="nav-link {{ $active == 'About' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{set_active(['about'])}}"
                           href="/about">About</a></li>
-                  <li class="nav-item"><a class="nav-link {{ $active == 'Team' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{set_active(['team'])}}"
                           href="/team">Team</a></li>
-                  <li class="nav-item"><a class="nav-link {{ $active == 'Gallery' ? 'active' : '' }}"
+                  <li class="nav-item"><a class="nav-link {{set_active(['gallery'])}}"
                           href="/gallery">Gallery</a></li>
 
                   <li class="dropdown "><a href="/blogs"
-                          class="{{ $active == 'All Blogs' ? 'active' : '' }}"><span>Blog</span> <i
+                          class="{{set_active(['blogs'])}}"><span>Blog</span> <i
                               class="bi bi-chevron-down dropdown-indicator"></i></a>
                       <ul>
-                          <li><a href="/blogs" class="{{ $active == 'All Blogs' ? 'active' : '' }}">All Blog</a></li>
-                          <li class="dropdown {{ $active == 'Category' ? 'active' : '' }}"><a
+                          <li><a href="{{set_active(['blogs'])}}" class="{{ $active == 'All Blogs' ? 'active' : '' }}">All Blog</a></li>
+                          <li class="dropdown {{set_active(['categories'])}}"><a
                                   href="/categories"><span>Categories</span> <i
                                       class="bi bi-chevron-down dropdown-indicator"></i></a>
                               <ul>

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('container')
 @include('partials.breadcrumbs')
@@ -10,7 +10,7 @@
       <div class="col-lg-8">
         <div class="slides-1 portfolio-details-slider swiper">
           <div class="swiper-wrapper align-items-center">
-           
+
 
             <div class="swiper-slide ">
               <img src="https://drive.google.com/uc?id={{ $galleri["gambar1"] }}" alt="Tidak tersedia" class="img-fluid">
@@ -47,7 +47,7 @@
                 class="glightbox preview-link"><i class="fs-2  bi bi-zoom-in"></i></a>
               </div>
             </div>
-        
+
           </div>
           <div class="swiper-pagination"></div>
         </div>

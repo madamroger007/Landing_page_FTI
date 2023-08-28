@@ -1,6 +1,8 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('container')
+    {{-- message --}}
+    {!! Toastr::message() !!}
     <div>
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="hero d-flex align-items-center">
