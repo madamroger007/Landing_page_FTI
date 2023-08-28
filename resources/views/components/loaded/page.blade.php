@@ -11,6 +11,8 @@
         <h1 id='loading-progress' class="absolute bottom-52"></h1>
     </div>
 
+
+
     @push('scripts')
     <script>
         $(document).ready(function() {

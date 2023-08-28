@@ -13,7 +13,7 @@
 
           <nav id="navbar" class="navbar">
               <ul>
-                  <li class="nav-item "><a class="nav-link {{set_active(['home'])}}"
+                  <li class="nav-item "><a class="nav-link {{set_active(['/'])}}"
                           href="/">Home</a>
                   </li>
                   <li class="nav-item"><a class="nav-link {{set_active(['about'])}}"

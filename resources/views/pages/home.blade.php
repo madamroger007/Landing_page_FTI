@@ -102,7 +102,7 @@
                         </div>
                         <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
                             <div class="phone-wrap">
-                                <img src="../img/iphone.png" alt="Image" class="img-fluid">
+                                <img src="build/assets/img/iphone.png" alt="Image" class="img-fluid">
                             </div>
                         </div>
                     </div>

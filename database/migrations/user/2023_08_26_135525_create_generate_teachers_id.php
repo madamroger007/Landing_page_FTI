@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('generate_teachers_id', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        DB::unprepared('
+            CREATE TRIGGER id_store_mentor BEFORE INSERT ON mentor FOR EACH ROW
+            BEGIN
+                INSERT INTO sequence_tbl VALUES (NULL);
+                SET NEW.mentor_id = CONCAT("0", LPAD(LAST_INSERT_ID(), 4, "0"));
+            END
+        ');
     }
 
     /**
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('generate_teachers_id');
+        DB::unprepared("DROP TRIGGER 'id_store'");
     }
 };

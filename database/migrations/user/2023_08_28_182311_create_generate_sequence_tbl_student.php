@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::unprepared('
-        CREATE TRIGGER id_store_siswa BEFORE INSERT ON siswa FOR EACH ROW
-        BEGIN
-            INSERT INTO generate_sequence_tbl_student VALUES (NULL);
-            SET NEW.siswa_id = CONCAT("0", LPAD(LAST_INSERT_ID(), 4, "0"));
-        END
-    ');
+        Schema::create('generate_sequence_tbl_student', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::unprepared("DROP TRIGGER 'id_store'");
+        Schema::dropIfExists('generate_sequence_tbl_student');
     }
 };

@@ -13,19 +13,19 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                           <div class="item">
-                            <img src="../img/bg/COVER.png" alt="fti" class=" img-bg">
-                        </div>
-                        </div>
-                        
-                        <div class="swiper-slide">
-                          <div class="item">
-                            <img src="../img/bg/komputer.jpg" alt="fti" class=" img-bg">
+                            <img src="build/assets/img/bg/COVER.png" alt="fti" class=" img-bg">
                         </div>
                         </div>
 
                         <div class="swiper-slide">
                           <div class="item">
-                            <img src="../img/bg/gallery.jpg" alt="fti" class=" img-bg">
+                            <img src="build/assets/img/bg/komputer.jpg" alt="fti" class=" img-bg">
+                        </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                          <div class="item">
+                            <img src="build/assets/img/bg/gallery.jpg" alt="fti" class=" img-bg">
                         </div>
                         </div>
                     </div>
