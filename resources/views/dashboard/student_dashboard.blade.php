@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.dashboard')
 @section('content')
     {{-- message --}}
     {!! Toastr::message() !!}
@@ -11,7 +11,7 @@
                         <div class="page-sub-header">
                             <h3 class="page-title">Welcome Bruklin!</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                                 <li class="breadcrumb-item active">Student</li>
                             </ul>
                         </div>

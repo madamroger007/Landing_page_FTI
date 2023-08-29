@@ -7,17 +7,17 @@
                 </li>
                 <li class="{{set_active(['setting/page'])}}">
                     <a href="{{ route('setting/page') }}">
-                        <i class="fas fa-cog"></i> 
+                        <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </a>
                 </li>
-                <li class="submenu {{set_active(['home','teacher/dashboard','student/dashboard'])}}">
+                <li class="submenu {{set_active(['dashboard','teacher/dashboard','student/dashboard'])}}">
                     <a href="#"><i class="feather-grid"></i>
-                        <span> Dashboard</span> 
+                        <span> Dashboard</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
-                        <li><a href="{{ route('home') }}" class="{{set_active(['home'])}}">Admin Dashboard</a></li>
+                        <li><a href="{{ route('dashboard') }}" class="{{set_active(['dashboard'])}}">Admin Dashboard</a></li>
                         <li><a href="{{ route('teacher/dashboard') }}" class="{{set_active(['teacher/dashboard'])}}">Teacher Dashboard</a></li>
                         <li><a href="{{ route('student/dashboard') }}" class="{{set_active(['student/dashboard'])}}">Student Dashboard</a></li>
                     </ul>
@@ -25,7 +25,7 @@
                 @if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
                 <li class="submenu {{set_active(['list/users'])}} {{ (request()->is('view/user/edit/*')) ? 'active' : '' }}">
                     <a href="#"><i class="fas fa-shield-alt"></i>
-                        <span>User Management</span> 
+                        <span>User Management</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
@@ -59,7 +59,7 @@
                         <li><a class="{{ (request()->is('teacher/edit/*')) ? 'active' : '' }}">Teacher Edit</a></li>
                     </ul>
                 </li>
-                
+
                 <li class="submenu {{set_active(['department/add/page','department/edit/page'])}}">
                     <a href="#"><i class="fas fa-building"></i>
                         <span> Departments</span>

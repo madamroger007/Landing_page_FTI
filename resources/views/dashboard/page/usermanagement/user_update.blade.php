@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.dashboard')
 @section('content')
     <div class="page-wrapper">
         <div class="content container-fluid">
@@ -69,7 +69,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Profile <span class="login-danger">*</span></label>

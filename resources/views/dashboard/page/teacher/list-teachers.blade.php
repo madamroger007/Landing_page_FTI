@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.dashboard')
 @section('content')
 {{-- message --}}
 {!! Toastr::message() !!}
@@ -64,7 +64,7 @@
 
                         <div class="table-responsive">
                             <table id="DataList" class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
-                                <thead class="student-thread"> 
+                                <thead class="student-thread">
                                     <tr>
                                         <th>
                                             <div class="form-check check-tables">

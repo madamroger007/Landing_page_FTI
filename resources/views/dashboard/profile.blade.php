@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.dashboard')
 @section('content')
 <div class="page-wrapper">
     <div class="content container-fluid">
@@ -8,7 +8,7 @@
                 <div class="col">
                     <h3 class="page-title">Profile</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Profile</li>
                     </ul>
                 </div>
@@ -138,7 +138,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                           
+
                                             <div class="form-group">
                                                 <label>New Password</label>
                                                 <input type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" value="{{ old('new_password') }}">

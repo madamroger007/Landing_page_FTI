@@ -25,10 +25,10 @@
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left">
-                <a href="{{ route('home') }}" class="logo">
+                <a href="{{ route('dashboard') }}" class="logo">
                     <img src="{{ URL::to('build/assets/img/logo.png') }}" alt="Logo">
                 </a>
-                <a href="{{ route('home') }}" class="logo logo-small">
+                <a href="{{ route('dashboard') }}" class="logo logo-small">
                     <img src="{{ URL::to('build/assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
                 </a>
             </div>
@@ -173,7 +173,7 @@
             </ul>
         </div>
 		{{-- side bar --}}
-		@include('sidebar.sidebar')
+		@include('dashboard.components.sidebar.sidebar')
 		{{-- content page --}}
         @yield('content')
         <footer>

@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('layouts.dashboard')
 @section('content')
 <div class="page-wrapper">
     <div class="content container-fluid">
