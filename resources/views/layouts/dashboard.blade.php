@@ -26,10 +26,10 @@
         <div class="header">
             <div class="header-left">
                 <a href="{{ route('dashboard') }}" class="logo">
-                    <img src="{{ URL::to('build/assets/img/logo.png') }}" alt="Logo">
+                    <img src="{{ URL::to('build/assets/img/adam.png') }}" alt="Logo">
                 </a>
                 <a href="{{ route('dashboard') }}" class="logo logo-small">
-                    <img src="{{ URL::to('build/assets/img/logo-small.png') }}" alt="Logo" width="30" height="30">
+                    <img src="{{ URL::to('build/assets/img/logo-mini.svg') }}" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <div class="menu-toggle">
@@ -165,9 +165,11 @@
                                 <p class="text-muted mb-0">{{ Session::get('role_name') }}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="{{ route('user/profile/page') }}">My Profile</a>
-                        <a class="dropdown-item" href="inbox.html">Inbox</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                              <button type="submit" class="dropdown-item justify-content-start"><i
+                                      class="bi bi-box-arrow-right me-2 fs-4 "></i>Logout</button>
+                          </form>
                     </div>
                 </li>
             </ul>

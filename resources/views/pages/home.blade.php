@@ -9,9 +9,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4">
-                        <h2 data-aos="fade-up">Teknik Informatika</h2>
+                        <h2 data-aos="fade-up">EPOCH DIGITAL</h2>
                         <blockquote data-aos="fade-up" data-aos-delay="100">
-                            <p> "Mahasiswa terbaik adalah mereka yang membawa perubahan positif bagi sekitarnya." </p>
+                            <p> "Forum untuk berkumpulnya bagi orang-orang yang mempunyai minat, kegemaran dalam berbagai bidang teknologi. " </p>
                         </blockquote>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                             <a href="/about" class="btn-get-started">Get Started</a>
@@ -39,58 +39,32 @@
                 <div class="container" data-aos="fade-up">
                     <div class="row">
                         <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                            <h3>Bidang Kemampuan</h3>
+                            <h3>Bidang Keahlian</h3>
 
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
                                     <div class="icon-list d-flex">
-                                        <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                                        <span>Bisnis</span>
+                                        <i class="bi bi-columns" style="color: #5578ff;"></i>
+                                        <span>UI/UX</span>
                                     </div>
                                 </div><!-- End Icon List Item-->
 
-                                <div class="col-md-6">
-                                    <div class="icon-list d-flex">
-                                        <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                                        <span>Data analis</span>
-                                    </div>
-                                </div><!-- End Icon List Item-->
-
-                                <div class="col-md-6">
-                                    <div class="icon-list d-flex">
-                                        <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                                        <span>Administrasi</span>
-                                    </div>
-                                </div><!-- End Icon List Item-->
 
                                 <div class="col-md-6">
                                     <div class="icon-list d-flex">
                                         <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                                        <span>Designer</span>
-                                    </div>
-                                </div><!-- End Icon List Item-->
-
-                                <div class="col-md-6">
-                                    <div class="icon-list d-flex">
-                                        <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                                        <span>Database Support</span>
+                                        <span>Graphic desaign</span>
                                     </div>
                                 </div><!-- End Icon List Item-->
 
                                 <div class="col-md-6">
                                     <div class="icon-list d-flex">
                                         <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                                        <span>Web Development</span>
+                                        <span>Full Stack Web</span>
                                     </div>
                                 </div><!-- End Icon List Item-->
 
-                                <div class="col-md-6">
-                                    <div class="icon-list d-flex">
-                                        <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                                        <span>Marketing</span>
-                                    </div>
-                                </div><!-- End Icon List Item-->
 
                                 <div class="col-md-6">
                                     <div class="icon-list d-flex">

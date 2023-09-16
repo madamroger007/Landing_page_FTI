@@ -38,7 +38,7 @@ class PostController extends Controller
         return view('pages.team', [
             'title' => 'Team',
             'active' => 'Team',
-            'img' => 'teamsesi.jpeg',
+            'img' => 'team/team.jpg',
             'teamData' => $dataFromSheet,
         ]);
     }
@@ -49,7 +49,7 @@ class PostController extends Controller
         return view('pages.gallery', [
             'title' => 'Gallery',
             'active' => 'Gallery',
-            'img' => 'gallery.jpg',
+            'img' => 'gallery/gallery.jpg',
             'service' => $this->data['home']['service'],
             'gallery' => $dataFromSheet,
         ]);
@@ -61,7 +61,7 @@ class PostController extends Controller
         return view('pages.galleryDetails', [
             'title' => 'Detail Gallery',
             'active' => 'Detail Gallery',
-            'img' => 'gallery.jpg',
+            'img' => 'gallery/gallery.jpg',
             'service' => $this->data['home']['service'],
             'galleri' => $dataFromSheetByslug,
         ]);
@@ -83,7 +83,7 @@ class PostController extends Controller
         return view('pages.blogs', [
             'title' => 'All Blogs ' . $title,
             'active' => 'All Blogs',
-            'img' => 'aboutsesi.jpeg',
+            'img' => 'blog/blog.jpg',
             // "posts" => Post::all()
             'posts' =>Post::latest()->filter(request(['search','category','author']))->paginate(8)->withQueryString(),
             'limit' => $this->Limit,
@@ -95,18 +95,26 @@ class PostController extends Controller
         return view('pages.about', [
             'title' => 'About',
             'active' => 'About',
-            'img' => 'aboutsesi.jpeg',
+            'img' => 'blog/blog.jpg',
             'service' => $this->data['home']['service'],
             'experience' => $this->data['about']['experience'],
             'education' => $this->data['about']['education'],
         ]);
+    }
+
+    public function showService(){
+return view('pages.services', [
+    'title' => 'Service',
+    'active' => 'Service',
+    'img' => 'service/service.jpg'
+]);
     }
     public function showContact()
     {
         return view('pages.contact', [
             'title' => 'Contact',
             'active' => 'Contact',
-            'img' => 'teamsesi.jpeg',
+            'img' => 'contact/contact.jpg',
         ]);
     }
 

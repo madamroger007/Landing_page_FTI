@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Epoch') }}</title>
 
     <!-- Vendor CSS Files -->
     <link href="{{ URL::to('build/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

@@ -49,7 +49,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        Toastr::success('Login successfully :)', 'Success');
+        Toastr::success('Logout successfully :)', 'Success');
         return redirect('/');
     }
 }
