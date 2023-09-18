@@ -19,8 +19,13 @@
         <div class="sidebar-item categories">
             <h3 class="sidebar-title">Categories</h3>
             <ul class="mt-3">
-                <li><a href="/blogs?category=web programming">Web Programming</a></li>
-                <li><a href="/blogs?category=personal">Personal</a></li>
+                <li><a href="/blogs?category=teknologi">Teknologi</a></li>
+                <li><a href="/blogs?category=kegiatan">Kegiatan</a></li>
+                <li><a href="/blogs?category=bisnis">Bisnis</a></li>
+                <li><a href="/blogs?category=pekerjaan">Pekerjaan</a></li>
+                <li><a href="/blogs?category=pendidikan">Pendidikan</a></li>
+                <li><a href="/blogs?category=berita">Berita</a></li>
+
             </ul>
         </div>
         <!-- End sidebar categories-->
@@ -41,17 +46,17 @@
                 <!-- End recent post item-->
                 @endif
                 @endforeach
-            
 
-                
+
+
 
             </div>
 
         </div>
         <!-- End sidebar recent posts-->
 
-        
-      
+
+
 
     </div>
     <!-- End Blog Sidebar -->

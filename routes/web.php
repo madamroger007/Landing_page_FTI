@@ -8,6 +8,7 @@ use App\Http\Controllers\User\MentorController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -42,7 +43,7 @@ Route::get('/authors/{author:username}', function (User $author) {
 })->name('user');
 
 //----------- Portofolio------------------------------------//
-Route::controller(PostController::class)->group(function () {
+Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'showHome')->name('home');
     Route::get('/about', 'showAbout')->name('about');
     Route::get('/service', 'showService')->name('service');
@@ -50,7 +51,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/gallery', 'showGallery')->name('gallery');
     Route::get('/blogs', 'showBlog')->name('blogs');
     Route::get('/contact', 'showContact')->name('contact');
-    Route::get('/blogs/{post:slug}', 'show')->name('blogs.post');
+    Route::get('/blogs/{post:slug}', 'showDetailBlog')->name('blogs.post');
     Route::get('/gallery/{gallery:slug}', 'showDetailGallery')->name('gallery.detail');
 });
 
@@ -65,6 +66,14 @@ Route::controller(CategoryController::class)->group(function () {
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index')->middleware(['auth', 'verified'])->name('dashboard');
     Route::get('user/profile/page', 'userProfile')->middleware('auth')->name('user/profile/page');
+
+});
+
+//----------- Post dashboard------------------------------------//
+Route::controller(PostController::class)->group(function(){
+    Route::get('post/list', 'AllPost')->middleware('auth')->name('post/list');
+    Route::post('post/update', 'postUpdate')->name('post/update'); // update record post
+    Route::post('post/delete', 'postDelete')->name('post/delete'); // delete record post
 });
 
 

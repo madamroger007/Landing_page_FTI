@@ -16,9 +16,13 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->string('title');
+            $table->string('sub_title');
+            $table->string('sub_two_title');
             $table->string('slug')->unique();
             $table->text('excerpt');
             $table->text('body');
+            $table->text('sub_body');
+            $table->text('sub_two_body');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

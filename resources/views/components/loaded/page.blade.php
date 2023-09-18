@@ -1,44 +1,41 @@
-<div class="loadedPage" id="loadedPage">
-    <div style="display: flex; justify-content: center; align-items: center; background-color: rgb(235, 241, 245); position: fixed; top: 0; left: 0; z-index: 9999; width: 100%; height: 100%;">
-        <div class="la-pacman la-3x mb-28" style="color: rgb(9, 9, 14)">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <h1 id='loading-progress' class="absolute bottom-52"></h1>
+<!-- Garis pemuatan akan muncul di sini -->
+<div id="loading-container">
+    <div id="loading-bar">
     </div>
+</div>
 
-
-
-    @push('scripts')
+@push('scripts')
     <script>
-        $(document).ready(function() {
-            var loadingProgress = $('#loading-progress');
-            function updateLoadingProgress(percentage) {
-                loadingProgress.text( 'Loading '+ percentage + '%');
+      // Event saat dokumen siap (DOM ready)
+      $(document).ready(function() {
+            // Animasikan garis pemuatan memanjang dengan durasi berdasarkan waktu loading
+            function animateLoadingBar(loadingTime) {
+                const loadingBar = $("#loading-bar");
+                let progress = 0;
+                const animationInterval = setInterval(function() {
+                    if (progress >= 100) {
+                        clearInterval(animationInterval); // Hentikan animasi saat mencapai 100%
+                        // Sembunyikan garis pemuatan saat animasi selesai
+                        const loadingContainer = $("#loading-container");
+                        loadingContainer.fadeOut("slow");
+                    } else {
+                        progress += 1;
+                        loadingBar.css("width", progress + "%");
+                    }
+                }, loadingTime / 100); // Interval waktu antara peningkatan progress
             }
-            // Menampilkan animasi loading dan persentase loading saat halaman pertama kali dimuat
-            $('#content').hide();
-            $('.loadedPage').fadeOut(3000, function() {
-                $('#content').fadeIn(1000); // Menampilkan konten halaman
 
+            // Mulai mengukur waktu saat halaman dimuat
+            const startTime = performance.now();
+
+            // Event saat halaman selesai dimuat
+            $(window).on("load", function() {
+                // Hitung waktu loading
+                const endTime = performance.now();
+                const loadingTime = endTime - startTime;
+                // Mulai animasi garis pemuatan dengan durasi sesuai waktu loading
+                animateLoadingBar(loadingTime);
             });
-
-            // Simulasi persentase loading (ubah sesuai kebutuhan)
-            var percentage = 0;
-            var interval = setInterval(function() {
-                if (percentage <= 100) {
-                    updateLoadingProgress(percentage);
-                    percentage += 5; // Ganti dengan nilai yang sesuai
-                } else {
-                    clearInterval(interval);
-                    updateLoadingProgress(100);
-                }
-            }, 100); // Ubah interval sesuai kebutuhan
         });
     </script>
 @endpush
-

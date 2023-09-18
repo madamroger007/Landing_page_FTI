@@ -2,131 +2,76 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\User;
-use App\Models\Category;
+use Illuminate\Http\Request;
+use Session;
 
 class PostController extends Controller
 {
-    protected $data;
-    private $Limit;
-    private $sheet;
-
-    public function __construct()
+    public function AllPost()
     {
-        $this->data =  include public_path('build/assets/php/data.php');
-        $this->Limit = 4;
-        $this->sheet = new GoogleSheetController();
-    }
 
-    public function showHome()
-    {
-        return view('pages.home', [
-            'title' => 'Home',
-            'active' => 'Home',
-            'service' => $this->data['home']['service'],
-            'posts' => Post::latest()->get(),
-            'limit' => $this->Limit,
+        return view('dashboard.page.usermanagement.list_users',[
+            'posts' => Post::where('user_id',auth()->user()->id)->get()
         ]);
     }
 
-    public function showTeam()
+    public function userUpdate(Request $request)
     {
-        $dataFromSheet = $this->sheet->getDataFromSheet();
+        DB::beginTransaction();
+        try {
+            if (Session::get('role_name') === 'Admin' || Session::get('role_name') === 'Super Admin')
+            {
+                $user_id       = $request->user_id;
+                $name         = $request->name;
+                $email        = $request->email;
+                $role_name    = $request->role_name;
+                $position     = $request->position;
+                $phone        = $request->phone_number;
+                $department   = $request->department;
+                $status       = $request->status;
 
-        return view('pages.team', [
-            'title' => 'Team',
-            'active' => 'Team',
-            'img' => 'team/team.jpg',
-            'teamData' => $dataFromSheet,
-        ]);
-    }
+                $image_name = $request->hidden_avatar;
+                $image = $request->file('avatar');
 
-    public function showGallery()
-    {
-        $dataFromSheet = $this->sheet->getDataFromSheetGallery();
-        return view('pages.gallery', [
-            'title' => 'Gallery',
-            'active' => 'Gallery',
-            'img' => 'gallery/gallery.jpg',
-            'service' => $this->data['home']['service'],
-            'gallery' => $dataFromSheet,
-        ]);
-    }
+                if($image_name =='photo_defaults.jpg') {
+                    if ($image != '') {
+                        $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                        $image->move(public_path('/images/'), $image_name);
+                    }
+                } else {
 
-    public function showDetailGallery($gallery)
-    {
-        $dataFromSheetByslug = $this->sheet->getDataByslugFromSheetGallery($gallery);
-        return view('pages.galleryDetails', [
-            'title' => 'Detail Gallery',
-            'active' => 'Detail Gallery',
-            'img' => 'gallery/gallery.jpg',
-            'service' => $this->data['home']['service'],
-            'galleri' => $dataFromSheetByslug,
-        ]);
-    }
+                    if($image != '') {
+                        unlink('images/'.$image_name);
+                        $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                        $image->move(public_path('/images/'), $image_name);
+                    }
+                }
 
-    public function showBlog()
-    {
-        $title= '';
-        if(request('category')){
-            $category = Category::firstWhere('slug',request('category'));
-            $title = 'in ' . $category->name;
+                $update = [
+                    'user_id'      => $user_id,
+                    'name'         => $name,
+                    'role_name'    => $role_name,
+                    'email'        => $email,
+                    'position'     => $position,
+                    'phone_number' => $phone,
+                    'department'   => $department,
+                    'status'       => $status,
+                    'avatar'       => $image_name,
+                ];
+
+                User::where('user_id',$request->user_id)->update($update);
+            } else {
+                Toastr::error('User update fail :)','Error');
+            }
+            DB::commit();
+            Toastr::success('User updated successfully :)','Success');
+            return redirect()->back();
+
+        } catch(\Exception $e){
+            DB::rollback();
+            Toastr::error('User update fail :)','Error');
+            return redirect()->back();
         }
-
-        if(request('author')){
-            $author = User::firstWhere('username',request('author'));
-            $title = 'by ' . $author->name;
-        }
-
-        return view('pages.blogs', [
-            'title' => 'All Blogs ' . $title,
-            'active' => 'All Blogs',
-            'img' => 'blog/blog.jpg',
-            // "posts" => Post::all()
-            'posts' =>Post::latest()->filter(request(['search','category','author']))->paginate(8)->withQueryString(),
-            'limit' => $this->Limit,
-        ]);
-    }
-
-    public function showAbout()
-    {
-        return view('pages.about', [
-            'title' => 'About',
-            'active' => 'About',
-            'img' => 'blog/blog.jpg',
-            'service' => $this->data['home']['service'],
-            'experience' => $this->data['about']['experience'],
-            'education' => $this->data['about']['education'],
-        ]);
-    }
-
-    public function showService(){
-return view('pages.services', [
-    'title' => 'Service',
-    'active' => 'Service',
-    'img' => 'service/service.jpg'
-]);
-    }
-    public function showContact()
-    {
-        return view('pages.contact', [
-            'title' => 'Contact',
-            'active' => 'Contact',
-            'img' => 'contact/contact.jpg',
-        ]);
-    }
-
-    public function show(Post $post)
-    {
-        return view('pages.post', [
-            'title' => 'Single Post',
-            'active' => 'Single Post',
-            'img' => 'aboutsesi.jpeg',
-            'post' => $post,
-            'posts' => Post::latest()->get(),
-            'limit' => $this->Limit,
-        ]);
     }
 }

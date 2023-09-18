@@ -19,6 +19,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
+                        <li><a href="{{ route('post/list') }}">All Post</a></li>
                         <li><a href="fees-collections.html">Teknologi</a></li>
                         <li><a href="expenses.html">Kegiatan</a></li>
                         <li><a href="salary.html">Bisnis</a></li>

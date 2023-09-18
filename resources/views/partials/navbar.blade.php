@@ -34,8 +34,13 @@
                                   href=""><span>Categories</span> <i
                                       class="bi bi-chevron-down dropdown-indicator"></i></a>
                               <ul>
-                                  <li><a href="/blogs?category=web programming">Web Programming</a></li>
-                                  <li><a href="/blogs?category=personal">Personal</a></li>
+                                  <li><a href="/blogs?category=teknologi">Teknologi</a></li>
+                                  <li><a href="/blogs?category=kegiatan">Kegiatan</a></li>
+                                  <li><a href="/blogs?category=bisnis">Bisnis</a></li>
+                                  <li><a href="/blogs?category=Pekerjaan">Pekerjaan</a></li>
+                                  <li><a href="/blogs?category=Pendidikan">Pendidikan</a></li>
+                                  <li><a href="/blogs?category=Berita">Berita</a></li>
+
                               </ul>
                           </li>
 

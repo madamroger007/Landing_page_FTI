@@ -52,23 +52,24 @@
 <body class="page-index">
     <!-- Blok untuk navbar yang ingin diabaikan saat di-extend -->
 
-    <div id="loadedPageMain">
-        @include('components.loaded.page')
-    </div>
 
-    <div id="content" style="display: none">
-        @hasSection('partials.navbar')
-        @else
-            @include('partials.navbar')
-        @endif
 
-        @yield('container')
-        @include('partials.footer')
-    </div>
+    {{-- <div id="content" style="display: none"> --}}
+    @include('components.loaded.page')
+
+    @hasSection('partials.navbar')
+    @else
+        @include('partials.navbar')
+    @endif
+
+    @yield('container')
+    @include('partials.footer')
+    {{-- </div> --}}
 
 
 
     @stack('scripts')
+
 
 </body>
 
