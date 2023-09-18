@@ -12,11 +12,15 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
- 
+
 
     public function index()
     {
-   
+
+        return view('pages.categories',[
+            'title' => 'Post Categories',
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -40,7 +44,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-     
+        return view('pages.post', [
+            'title' => "Post by category : $category->name",
+            'posts' => $category->posts,
+            'category' => $category->name,
+        ]);
     }
 
     /**

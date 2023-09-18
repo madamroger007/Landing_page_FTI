@@ -13,19 +13,19 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                           <div class="item">
-                            <img src="../img/bg/COVER.png" alt="fti" class=" img-bg">
-                        </div>
-                        </div>
-                        
-                        <div class="swiper-slide">
-                          <div class="item">
-                            <img src="../img/bg/komputer.jpg" alt="fti" class=" img-bg">
+                            <img src="build/assets/img/swiper/satu.jpg" alt="fti" class=" img-bg">
                         </div>
                         </div>
 
                         <div class="swiper-slide">
                           <div class="item">
-                            <img src="../img/bg/gallery.jpg" alt="fti" class=" img-bg">
+                            <img src="build/assets/img/swiper/dua.png" alt="fti" class=" img-bg">
+                        </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                          <div class="item">
+                            <img src="build/assets/img/swiper/tiga.jpg" alt="fti" class=" img-bg">
                         </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             <div class="item">
                                 <h3 class="mb-3">Membangun Masa Depan Cemerlang</h3>
                                 <h4 class="mb-3">#Mahasiswa FTI</h4>
-                                <p>Inovasi tak terbatas di Prodi Teknik Informatika, kami mengadopsi pendekatan
+                                <p>Inovasi tak terbatas di EPOCH, kami mengadopsi pendekatan
                                     berbasis komunitas yang mendorong mahasiswa untuk berbagi pengetahuan dan ide-ide
                                     revolusioner melalui program seminar, workshop, dan kompetisi teknologi. Dengan
                                     demikian, menciptakan lingkungan stimulatif yang mengembangkan kreativitas dan
@@ -67,7 +67,7 @@
                             <div class="item">
                                 <h3 class="mb-3">Menguasai Teknologi untuk Masa Depan</h3>
                                 <h4 class="mb-3">#Mahasiswa FTI</h4>
-                                <p>Di Prodi Teknik Informatika, kami mendorong penelitian dan pengembangan teknologi
+                                <p>Di EPOCH, kami mendorong penelitian dan pengembangan teknologi
                                     baru melalui laboratorium riset yang dilengkapi dengan perangkat canggih. Kami
                                     mengajak mahasiswa dan dosen untuk bersama-sama mengeksplorasi ide-ide kreatif
                                     yang dapat menghasilkan solusi inovatif dalam bidang kecerdasan buatan, komputasi
@@ -79,7 +79,7 @@
                             <div class="item">
                                 <h3 class="mb-3">Membuka Pintu Kesempatan</h3>
                                 <h4 class="mb-3">#Mahasiswa FTI</h4>
-                                <p>Prodi Teknik Informatika memberikan kesempatan bagi mahasiswa untuk mengembangkan
+                                <p>EPOCH memberikan kesempatan bagi mahasiswa untuk mengembangkan
                                     startup teknologi mereka sendiri melalui inkubator inovasi kampus. Kami
                                     memberikan bimbingan dari ahli industri dan mentor yang berpengalaman untuk
                                     membantu mahasiswa mewujudkan ide-ide inovatif menjadi produk atau layanan yang
